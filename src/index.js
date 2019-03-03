@@ -1,4 +1,4 @@
-import Kabutan from './Kabutan'
+import Kabutan from './kabutan'
 const childProcess = require('child_process')
 require('dotenv').config()
 
