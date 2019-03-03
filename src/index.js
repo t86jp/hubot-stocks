@@ -1,13 +1,14 @@
 import Kabutan from './kabutan'
 const childProcess = require('child_process')
+const moji = require('moji')
 require('dotenv').config()
 
 const CHART_DIR = './tmp'
-const STOCK_NUMBER_REGEX = /([0-9]{4})/g
+const STOCK_NUMBER_REGEX = /([0-9０-９]{4})/g
 
-const normalizeStockNumber = (stockNumber) => (
-  stockNumber
-)
+const normalizeStockNumber = (stockNumber) => {
+  return moji(stockNumber).convert('ZE', 'HE').toString()
+}
 function saveChartImage (stockNumber) {
   const filename = `${CHART_DIR}/${stockNumber}.png`
 
@@ -58,7 +59,7 @@ module.exports = (robot) => {
         saveChartImage(code)
           .then(async (filename) => {
             let stdout = await uploadChartImage(code, filename, channel)
-            message.send('ga: ' + filename)
+            // message.send('ga: ' + filename)
           })
       } catch (e) {
         message.send(`error stock=${code}: チャートerror: ${e}`)

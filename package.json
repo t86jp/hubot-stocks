@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn build && yarn hubot -a slack -r dist",
+    "start:dev": "yarn build && yarn hubot -r dist",
     "build": "babel src --out-dir dist",
     "postinstall": "yarn build"
   },
@@ -20,6 +21,7 @@
     "dotenv": "^6.2.0",
     "hubot": "^3.3.0",
     "hubot-slack": "^4.6.0",
+    "moji": "^0.5.1",
     "phantom": "^6.0.3",
     "phantomjs-prebuilt": "^2.1.16",
     "seamless-immutable": "^7.1.4"
