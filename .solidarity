@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json.schemastore.org/solidaritySchema",
+  "requirements": {
+    "Yarn": [{ "rule": "cli", "binary": "yarn", "semver": "^1.12.3" }],
+    "Node": [{ "rule": "cli", "binary": "node", "semver": ">=11.4.0" }]
+  }
+}

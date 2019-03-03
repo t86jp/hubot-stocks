@@ -1,0 +1,30 @@
+# OSX
+#
+.DS_Store
+
+# testing
+#
+
+# Storybook
+#
+#/storybook/storyLoader.js
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+/dist/
+
+# Misc
+#
+/.env
+/.hubot_history
+
+# Vim Artifacts
+*.swp
+*.swo
+.ctrlp_cache/
+/tags
+.clang_complete
+.syntastic_cpp_config
