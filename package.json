@@ -4,19 +4,19 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "yarn build && yarn hubot --adapter slack --require dist",
+    "start": "yarn build && yarn hubot -a slack -r dist",
     "build": "babel src --out-dir dist",
     "postinstall": "yarn build"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.4",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.3.4",
     "solidarity": "^2.3.1",
     "standard": "^12.0.1"
   },
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4",
     "dotenv": "^6.2.0",
     "hubot": "^3.3.0",
     "hubot-slack": "^4.6.0",
