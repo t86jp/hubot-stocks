@@ -3,6 +3,14 @@ const phantom = require('phantom')
 
 const KABUTAN_BASE_URL = 'https://kabutan.jp/stock/chart'
 
+function wait (time) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, time)
+  })
+}
+
 export default class Kabutan {
   constructor () {
     // 画面サイズ
@@ -57,5 +65,30 @@ export default class Kabutan {
   async openPageByCode (code, callback) {
     const url = this.createKabutanUrl(code)
     return this.openPage(url, callback)
+  }
+
+  saveChartImage (stockNumber, filename, evaluate) {
+    let saveImagePromise = new Promise((resolve, reject) => {
+      try {
+        this.openPageByCode(stockNumber, async (page) => {
+          let evaluatePromise = evaluate(page)
+          await wait(2000)
+
+          evaluatePromise.then((rect) => {
+            this.clipRect({
+              width: rect.width,
+              height: rect.height,
+              top: rect.top,
+              left: rect.left
+            })
+
+            // console.log(page)
+            page.render(filename).then(() => resolve(filename)).catch(e => { throw e })
+          })
+        })
+      } catch (e) { reject(e) }
+    })
+
+    return saveImagePromise
   }
 }
