@@ -51,7 +51,7 @@ function saveChartImage (stockNumber) {
 
             page.render(filename).then(() => callbackResolve(filename))
           }).catch((e) => callbackReject(e))
-        }, 500)
+        }, 2000)
       })
 
       return callbackPromise.then(() => resolve(filename)).catch((e) => reject(e))
