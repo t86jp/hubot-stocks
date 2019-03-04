@@ -7,6 +7,8 @@
     "start": "yarn build && yarn hubot -a slack -r dist",
     "start:dev": "yarn build && yarn hubot -r dist",
     "build": "babel src --out-dir dist",
+    "daemon": "forever start -c 'yarn start:dev' ./",
+    "daemon:restart": "forever restart $(yarn forever list | grep 'yarn start' | cut -f6 -d' ')",
     "postinstall": "yarn build"
   },
   "devDependencies": {
@@ -19,6 +21,7 @@
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.3.4",
     "dotenv": "^6.2.0",
+    "forever": "^0.15.3",
     "hubot": "^3.3.0",
     "hubot-slack": "^4.6.0",
     "moji": "^0.5.1",
