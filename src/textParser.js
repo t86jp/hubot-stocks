@@ -2,7 +2,7 @@ import R from 'ramda'
 
 const moji = require('moji')
 
-export const STOCK_NUMBER_REGEX = /([0-9０-９]{4})/g
+export const STOCK_NUMBER_REGEX = /(?<![0-9０-９])([0-9０-９]{4})(?![0-9０-９])/g
 
 export function * findStockNumber (message) {
   let _message = message
