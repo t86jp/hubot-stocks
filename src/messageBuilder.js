@@ -15,6 +15,7 @@ export function createExternalLinks (code) {
   return {
     text: `外部リンク ${code}`,
     attachments: [{
+      fallback: 'links: ' + actions.map((a) => `<${a.url}|${a.text}>`).join(' '),
       actions
     }]
   }
