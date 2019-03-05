@@ -7,7 +7,7 @@
     "start": "yarn build && yarn hubot -a slack -r dist",
     "start:dev": "yarn build && yarn hubot -r dist",
     "build": "babel src --out-dir dist",
-    "daemon": "forever start -c 'yarn start:dev' ./",
+    "daemon": "forever start -c 'yarn start' ./",
     "daemon:restart": "forever restart $(yarn forever list | grep 'yarn start' | cut -f6 -d' ')",
     "postinstall": "yarn build"
   },
