@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.3.4",
     "dotenv": "^6.2.0",
     "hubot": "^3.3.0",
+    "hubot-heroku-keepalive": "^1.0.3",
     "hubot-slack": "^4.6.0",
     "moji": "^0.5.1",
     "phantom": "^6.0.3",

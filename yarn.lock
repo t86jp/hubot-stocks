@@ -2719,6 +2719,11 @@ https-proxy-agent@^2.2.0:
     agent-base "^4.1.0"
     debug "^3.1.0"
 
+hubot-heroku-keepalive@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/hubot-heroku-keepalive/-/hubot-heroku-keepalive-1.0.3.tgz#2950e28095ee4a6ace2b76f90e2a91ba91e6813c"
+  integrity sha1-KVDigJXuSmrOK3b5DiqRupHmgTw=
+
 hubot-slack@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/hubot-slack/-/hubot-slack-4.6.0.tgz#c016cc1b6cf76a35d613acb98382d14bafdfd7ad"
