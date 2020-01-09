@@ -12,7 +12,13 @@ function saveChartImage (stockNumber) {
       document.getElementById('kc_ashi_4').click()
       document.getElementById('kc_tech2_11').click()
 
-      return document.getElementById('kc_area').getBoundingClientRect()
+      const rect = document.getElementById('kc_backPanel_c0').getBoundingClientRect()
+      return {
+        width: rect.width,
+        height: rect.height,
+        top: rect.top,
+        left: rect.left
+      }
     })
   })
 }

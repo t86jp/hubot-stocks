@@ -72,7 +72,7 @@ export default class Kabutan {
       try {
         this.openPageByCode(stockNumber, async (page) => {
           let evaluatePromise = evaluate(page)
-          await wait(5000)
+          await wait(2000)
 
           evaluatePromise.then((rect) => {
             this.clipRect({
