@@ -21,10 +21,10 @@ export default class Kabutan {
 
     // 切り抜き位置(株探チャート用)
     this._clipRect = Immutable({
-      top: 518,
+      top: 0,
       left: 475,
       width: 640,
-      height: 405
+      height: 405+518
     })
   }
 
