@@ -77,8 +77,9 @@ export default class Kabutan {
           evaluatePromise.then((rect) => {
             this.clipRect({
               width: rect.width,
-              height: rect.height,
-              top: rect.top,
+              height: rect.height+513,
+              // top: rect.top,
+              top: 0,
               left: rect.left
             })
 
