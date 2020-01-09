@@ -71,15 +71,16 @@ export default class Kabutan {
     let saveImagePromise = new Promise((resolve, reject) => {
       try {
         this.openPageByCode(stockNumber, async (page) => {
-          await wait(2000)
           let evaluatePromise = evaluate(page)
           await wait(2000)
 
           evaluatePromise.then((rect) => {
+            console.log(rect)
             this.clipRect({
               width: rect.width,
               height: rect.height,
-              top: rect.top,
+              // top: rect.top,
+              top: 762,
               left: rect.left
             })
 
