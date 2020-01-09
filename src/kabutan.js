@@ -29,13 +29,13 @@ export default class Kabutan {
   }
 
   viewportSize (size) {
-    this._viewportSize.merge(size)
+    this._viewportSize = this._viewportSize.merge(size)
 
     return this
   }
 
   clipRect (size) {
-    this._clipRect.merge(size)
+    this._clipRect = this._clipRect.merge(size)
 
     return this
   }
