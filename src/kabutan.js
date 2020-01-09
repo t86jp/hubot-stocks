@@ -21,10 +21,10 @@ export default class Kabutan {
 
     // 切り抜き位置(株探チャート用)
     this._clipRect = Immutable({
-      top: 0,
+      top: 518,
       left: 475,
       width: 640,
-      height: 405+518
+      height: 405
     })
   }
 
@@ -71,15 +71,14 @@ export default class Kabutan {
     let saveImagePromise = new Promise((resolve, reject) => {
       try {
         this.openPageByCode(stockNumber, async (page) => {
-          let evaluatePromise = evaluate(page)
           await wait(2000)
+          let evaluatePromise = evaluate(page)
 
           evaluatePromise.then((rect) => {
             this.clipRect({
               width: rect.width,
-              height: rect.height+513,
-              // top: rect.top,
-              top: 0,
+              height: rect.height,
+              top: rect.top,
               left: rect.left
             })
 
