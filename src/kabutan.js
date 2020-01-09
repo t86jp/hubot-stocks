@@ -14,30 +14,18 @@ function wait (time) {
 export default class Kabutan {
   constructor () {
     // 画面サイズ
-    this._viewportSize = Immutable({
+    this.defaultViewportSize = Immutable({
       width: 1920,
       height: 1080
     })
 
     // 切り抜き位置(株探チャート用)
-    this._clipRect = Immutable({
+    this.defaultClipRect = Immutable({
       top: 518,
       left: 475,
       width: 640,
       height: 405
     })
-  }
-
-  viewportSize (size) {
-    this._viewportSize = this._viewportSize.merge(size)
-
-    return this
-  }
-
-  clipRect (size) {
-    this._clipRect = this._clipRect.merge(size)
-
-    return this
   }
 
   createKabutanUrl (code) {
@@ -51,8 +39,7 @@ export default class Kabutan {
     const instance = await phantom.create()
 
     const page = await instance.createPage()
-    page.property('viewportSize', this._viewportSize)
-    page.property('clipRect', this._clipRect)
+    page.property('viewportSize', this.defaultViewportSize)
 
     const status = await page.open(url.toString())
 
@@ -75,16 +62,14 @@ export default class Kabutan {
           await wait(2000)
 
           evaluatePromise.then((rect) => {
-            console.log(rect)
-            this.clipRect({
+            const clipRect = this.defaultClipRect.merge({
               width: rect.width,
               height: rect.height,
-              // top: rect.top,
-              top: 762,
+              top: rect.top,
               left: rect.left
             })
+            page.property('clipRect', clipRect)
 
-            // console.log(page)
             page.render(filename).then(() => resolve(filename)).catch(e => { throw e })
           })
         })
